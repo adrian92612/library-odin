@@ -25,12 +25,51 @@
       </div>
       <div>
         <div>
+          <label for="pages-read">Pages Read</label>
+        </div>
+        <input type="number" name="pages-read" id="pages-read" />
+      </div>
+      <div>
+        <div>
           <label for="pages">Pages</label>
         </div>
         <input type="number" name="pages" id="pages" />
       </div>
       <button type="submit">Add Book</button>
     </form>
+    <form id="edit-form" action="#">
+      <div>
+        <div>
+          <label for="edit-title">Title</label>
+        </div>
+        <input type="text" name="edit-title" id="edit-title" />
+      </div>
+      <div>
+        <div>
+          <label for="edit-author">Author</label>
+        </div>
+        <input type="text" name="edit-author" id="edit-author" />
+      </div>
+      <div>
+        <div>
+          <label for="edit-pages-read">Pages Read</label>
+        </div>
+        <input type="number" name="edit-pages-read" id="edit-pages-read" />
+      </div>
+      <div>
+        <div>
+          <label for="edit-pages">Pages</label>
+        </div>
+        <input type="number" name="edit-pages" id="edit-pages" />
+      </div>
+      <button>Submit</button>
+    </form>
+    <div id="headers">
+      <p>Title</p>
+      <p>Author</p>
+      <p>Read</p>
+      <p>Pages</p>
+    </div>
     <div id="container"></div>
   </body>
 </html>
