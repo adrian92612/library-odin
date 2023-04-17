@@ -27,11 +27,28 @@
         <label for="acquired">Acquired</label>
       </div>
       <div>
-        <input type="number" name="pages-read" id="pages-read" />
+        <input
+          type="number"
+          step="1"
+          min="0"
+          name="pages-read"
+          id="pages-read"
+          oninput="this.value = 
+        !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+        />
         <label for="pages-read">Read</label>
+        <span id="error-msg">Must be equal or less than Pages.</span>
       </div>
       <div>
-        <input type="number" name="pages" id="pages" />
+        <input
+          type="number"
+          step="1"
+          min="0"
+          name="pages"
+          id="pages"
+          oninput="this.value = 
+        !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+        />
         <label for="pages">Pages</label>
       </div>
       <button type="submit">Add Book</button>
@@ -53,13 +70,18 @@
         <div>
           <label for="edit-pages-read">Pages Read</label>
         </div>
-        <input type="number" name="edit-pages-read" id="edit-pages-read" />
+        <input
+          type="number"
+          step="1"
+          name="edit-pages-read"
+          id="edit-pages-read"
+        />
       </div>
       <div>
         <div>
           <label for="edit-pages">Pages</label>
         </div>
-        <input type="number" name="edit-pages" id="edit-pages" />
+        <input type="number" step="1" name="edit-pages" id="edit-pages" />
       </div>
       <button>Submit</button>
     </form>
@@ -68,8 +90,8 @@
       <p class="type1">Author</p>
       <p class="type2">Published</p>
       <p class="type2">Acquired</p>
-      <p class="type2">Read</p>
-      <p class="type2">Pages</p>
+      <p class="type3">Read</p>
+      <p class="type3">Pages</p>
     </div>
     <div id="container"></div>
     <footer>Library Project by Adrian</footer>

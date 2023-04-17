@@ -1,9 +1,11 @@
 let library = [];
 
 class Book {
-  constructor(title = "Unkown", author = "Unkown", pagesRead = 0, pages = 0) {
+  constructor(title, author, published, acquired, pagesRead, pages) {
     this.title = title;
     this.author = author;
+    this.published = published;
+    this.acquired = acquired;
     this.pagesRead = pagesRead;
     this.pages = pages;
   }
@@ -12,8 +14,11 @@ class Book {
 const form = document.getElementById("form");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
+const published = document.getElementById("published");
+const acquired = document.getElementById("acquired");
 const pagesRead = document.getElementById("pages-read");
 const pages = document.getElementById("pages");
+const errorMsg = document.getElementById("error-msg");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -22,16 +27,20 @@ form.addEventListener("submit", (e) => {
     pagesRead.value < 0 ||
     pages.value < 0
   ) {
+    errorMsg.setAttribute("style", "visibility:visible");
     return;
   }
   const newBook = new Book(
     title.value,
     author.value,
+    published.value,
+    acquired.value,
     pagesRead.value,
     pages.value
   );
   library.push(newBook);
   renderBooks();
+  errorMsg.removeAttribute("style");
   form.reset();
 });
 
@@ -44,8 +53,10 @@ function renderBooks() {
         <div class='items' date-index='${i}'>
             <p class='type1'>${library[i].title}</p>
             <p class='type1'>${library[i].author}</p>
-            <p class='type2'>${library[i].pagesRead}</p>
-            <p class='type2'>${library[i].pages}</p>
+            <p class='type2'>${library[i].published}</p>
+            <p class='type2'>${library[i].acquired}</p>
+            <p class='type3'>${library[i].pagesRead}</p>
+            <p class='type3'>${library[i].pages}</p>
             <button onclick="removeBook(${i})">Remove</button>
             <button onClick='editBookEntry(${i})'>Edit</button>
         </div>
