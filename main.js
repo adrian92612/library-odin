@@ -17,17 +17,19 @@ const pages = document.getElementById("pages");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const bookTitle =
-    title.value.replace(/\s+/, "") === "" ? "Unkown" : title.value;
-  const bookAuthor =
-    author.value.replace(/\s+/, "") === "" ? "Unkown" : author.value;
-  const read = pagesRead.value;
-  const totalPage = pages.value;
-  if (read > totalPage) {
-    console.log("cannot be");
+  if (
+    Number(pagesRead.value) > Number(pages.value) ||
+    pagesRead.value < 0 ||
+    pages.value < 0
+  ) {
     return;
   }
-  const newBook = new Book(bookTitle, bookAuthor, pagesRead.value, pages.value);
+  const newBook = new Book(
+    title.value,
+    author.value,
+    pagesRead.value,
+    pages.value
+  );
   library.push(newBook);
   renderBooks();
   form.reset();
@@ -40,10 +42,10 @@ function renderBooks() {
     const bookCard = document.createElement("div");
     bookCard.innerHTML = `
         <div class='items' date-index='${i}'>
-            <p>${library[i].title}</p>
-            <p>${library[i].author}</p>
-            <p>${library[i].pagesRead}</p>
-            <p>${library[i].pages}</p>
+            <p class='type1'>${library[i].title}</p>
+            <p class='type1'>${library[i].author}</p>
+            <p class='type2'>${library[i].pagesRead}</p>
+            <p class='type2'>${library[i].pages}</p>
             <button onclick="removeBook(${i})">Remove</button>
             <button onClick='editBookEntry(${i})'>Edit</button>
         </div>
@@ -53,6 +55,7 @@ function renderBooks() {
   }
 }
 function removeBook(index) {
+  if (editForm.hasAttribute("style")) return;
   library.splice(index, 1);
   renderBooks();
 }
@@ -75,6 +78,13 @@ function editBookEntry(i) {
 
 editForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  if (
+    Number(editPagesRead.value) > Number(editPages.value) ||
+    editPagesRead.value < 0 ||
+    editPages.value < 0
+  ) {
+    return;
+  }
   library[editCurrentIndex].title = editTitle.value;
   library[editCurrentIndex].author = editAuthor.value;
   library[editCurrentIndex].pagesRead = editPagesRead.value;

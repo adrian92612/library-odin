@@ -1,56 +1,168 @@
+@font-face {
+  font-family: Stonehenge;
+  src: url(./font/stonehen.ttf);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: Stonehenge;
+  letter-spacing: 1px;
+
+  --bg-frost: rgba(95, 158, 160, 0.1);
+  --bg-blur: blur(5px);
+  --bisque: #ffe4c4;
+}
+
+body {
+  background-image: url(./images/henry-be-lc7xcWebECc-unsplash.jpg);
+  background-size: cover;
+  height: 120vh;
+  color: var(--bisque);
 }
 
 #form {
   display: flex;
   justify-content: center;
+  align-items: end;
+  position: fixed;
+  z-index: 1;
   gap: 20px;
-  margin: 50px 0;
+  width: 100%;
+  font-size: bolder;
+  top: 0;
+  color: var(--bisque);
+  margin: 0 auto;
+  padding: 20px 0;
+  backdrop-filter: var(--bg-blur);
+  border-radius: 5px;
 }
-#form > button {
-  width: 100px;
+#form > div {
+  position: relative;
+}
+
+#form label {
+  position: absolute;
+  left: 10px;
+  top: -15px;
+  background-color: black;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+button {
+  width: 80px;
+  color: var(--bisque);
   align-self: end;
+  padding: 5px 10px;
+  background: none;
+  border: 1px solid var(--bisque);
+  border-radius: 5px;
+}
+
+#form input {
+  background: none;
+  border-radius: 5px;
+  color: var(--bisque);
+  font-size: 1rem;
+  padding: 5px 10px;
+  outline-style: none;
+  border: 1px solid var(--bisque);
+}
+
+#title,
+#author {
+  width: 200px;
+}
+
+#pages,
+#pages-read {
+  width: 80px;
 }
 
 #edit-form {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 1;
+  width: 400px;
   transform: translate(-50%, -50%) scale(0);
   border: 2px solid black;
   padding: 10px;
   background-color: aquamarine;
-  transition: 0.5s;
+  transition: 0.2s;
+}
+
+#edit-form input,
+#edit-form button {
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 #container {
-  width: 80%;
-  margin: 20px auto;
-  border: 1px solid red;
+  width: 1200px;
+  margin: 10px auto;
+  padding: 0;
+  height: 105vh;
+  overflow: auto;
+  background-color: var(--bg-frost);
+  backdrop-filter: var(--bg-blur);
+  border-radius: 5px;
 }
 
-#headers,
-.items {
-  width: 80%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(2, 100px) repeat(2, 80px);
-  border: 1px solid black;
+#headers {
+  width: 1200px;
+  display: flex;
+  justify-content: flex-start;
   margin: 0 auto;
-  font-size: 1.1rem;
-  font-weight: 900;
-  padding: 0 20px;
-  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  padding: 10px 20px;
+  gap: 0px;
+}
+
+.type1 {
+  width: 230px;
+}
+.type2 {
+  width: 90px;
+}
+
+#headers {
+  background-color: var(--bg-frost);
+  backdrop-filter: var(--bg-blur);
+  border-radius: 5px;
+  letter-spacing: 5px;
+  margin-top: 100px;
+  gap: 30px;
 }
 
 .items {
+  display: flex;
   width: 100%;
   font-weight: 100;
-  border: none;
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr) repeat(2, 100px) repeat(2, 80px);
-  padding: 0 20px;
-  gap: 10px; */
+  font-size: 1.1rem;
+  gap: 25px;
+  padding: 20px;
+  overflow-wrap: break-word;
+}
+
+.items > p + button {
+  background-color: blue;
+  margin-left: auto;
+}
+
+footer {
+  text-align: center;
+  font-size: 1.2rem;
+  width: 100%;
+  backdrop-filter: var(--bg-blur);
+  padding: 20px 0;
+  bottom: 0;
 }

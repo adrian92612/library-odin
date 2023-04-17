@@ -11,29 +11,28 @@
   <body>
     <form id="form" action="#">
       <div>
-        <div>
-          <label for="title">Title</label>
-        </div>
         <input type="text" id="title" name="title" />
+        <label for="title">Title</label>
       </div>
-
       <div>
-        <div>
-          <label for="author">Author</label>
-        </div>
         <input type="text" id="author" name="author" />
+        <label for="author">Author</label>
       </div>
       <div>
-        <div>
-          <label for="pages-read">Pages Read</label>
-        </div>
+        <input type="date" id="published" name="published" />
+        <label for="published">Published</label>
+      </div>
+      <div>
+        <input type="date" id="acquired" name="acquired" />
+        <label for="acquired">Acquired</label>
+      </div>
+      <div>
         <input type="number" name="pages-read" id="pages-read" />
+        <label for="pages-read">Read</label>
       </div>
       <div>
-        <div>
-          <label for="pages">Pages</label>
-        </div>
         <input type="number" name="pages" id="pages" />
+        <label for="pages">Pages</label>
       </div>
       <button type="submit">Add Book</button>
     </form>
@@ -65,11 +64,14 @@
       <button>Submit</button>
     </form>
     <div id="headers">
-      <p>Title</p>
-      <p>Author</p>
-      <p>Read</p>
-      <p>Pages</p>
+      <p class="type1">Title</p>
+      <p class="type1">Author</p>
+      <p class="type2">Published</p>
+      <p class="type2">Acquired</p>
+      <p class="type2">Read</p>
+      <p class="type2">Pages</p>
     </div>
     <div id="container"></div>
+    <footer>Library Project by Adrian</footer>
   </body>
 </html>
