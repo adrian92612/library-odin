@@ -246,10 +246,24 @@ body {
 }
 
 footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
   width: 100%;
   backdrop-filter: var(--bg-blur);
   padding: 20px 0;
   bottom: 0;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--bisque);
+  text-shadow: 0 0 3px red;
+}
+
+svg {
+  height: auto;
+  width: 50px;
+  fill: var(--bisque);
 }
