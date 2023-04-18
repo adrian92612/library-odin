@@ -76,6 +76,7 @@ const editTitle = document.getElementById("edit-title");
 const editAuthor = document.getElementById("edit-author");
 const editPagesRead = document.getElementById("edit-pages-read");
 const editPages = document.getElementById("edit-pages");
+const editErrorMsg = document.getElementById("edit-error-msg");
 let editCurrentIndex = "";
 
 function editBookEntry(i) {
@@ -94,6 +95,7 @@ editForm.addEventListener("submit", (e) => {
     editPagesRead.value < 0 ||
     editPages.value < 0
   ) {
+    editErrorMsg.setAttribute("style", "visibility:visible");
     return;
   }
   library[editCurrentIndex].title = editTitle.value;
@@ -102,5 +104,6 @@ editForm.addEventListener("submit", (e) => {
   library[editCurrentIndex].pages = editPages.value;
 
   editForm.removeAttribute("style");
+  editErrorMsg.removeAttribute("style");
   renderBooks();
 });

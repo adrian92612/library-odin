@@ -149,6 +149,15 @@ body {
   text-align: center;
 }
 
+#edit-error-msg {
+  position: absolute;
+  width: max-content;
+  color: red;
+  left: -100%;
+  bottom: -15px;
+  visibility: hidden;
+}
+
 #edit-form #edit-title,
 #edit-form #edit-author {
   width: 330px;
