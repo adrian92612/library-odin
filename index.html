@@ -55,21 +55,23 @@
     </form>
     <form id="edit-form" action="#">
       <div>
-        <div>
-          <label for="edit-title">Title</label>
-        </div>
+        <label for="edit-title">Title</label>
         <input type="text" name="edit-title" id="edit-title" />
       </div>
       <div>
-        <div>
-          <label for="edit-author">Author</label>
-        </div>
+        <label for="edit-author">Author</label>
         <input type="text" name="edit-author" id="edit-author" />
       </div>
       <div>
-        <div>
-          <label for="edit-pages-read">Pages Read</label>
-        </div>
+        <label for="edit-published">Published</label>
+        <input type="date" name="edit-published" id="edit-published" />
+      </div>
+      <div>
+        <label for="edit-acquired">Acquired</label>
+        <input type="date" name="edit-acquired" id="edit-acquired" />
+      </div>
+      <div>
+        <label for="edit-pages-read">Read</label>
         <input
           type="number"
           step="1"
@@ -78,9 +80,7 @@
         />
       </div>
       <div>
-        <div>
-          <label for="edit-pages">Pages</label>
-        </div>
+        <label for="edit-pages">Pages</label>
         <input type="number" step="1" name="edit-pages" id="edit-pages" />
       </div>
       <button>Submit</button>
