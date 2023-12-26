@@ -11,19 +11,22 @@
   <body>
     <form id="form" action="#">
       <div>
-        <input type="text" id="title" name="title" />
+        <input type="text" id="title" name="title" required />
+        <span class="error-msg">Must be less than 30 characters</span>
         <label for="title">Title</label>
       </div>
       <div>
-        <input type="text" id="author" name="author" />
+        <input type="text" id="author" name="author" required />
+        <span class="error-msg">Must be less than 30 characters</span>
         <label for="author">Author</label>
       </div>
       <div>
-        <input type="date" id="published" name="published" />
+        <input type="date" id="published" name="published" required />
         <label for="published">Published</label>
       </div>
       <div>
-        <input type="date" id="acquired" name="acquired" />
+        <input type="date" id="acquired" name="acquired" required />
+        <span class="error-msg">Must be later or equal to Published</span>
         <label for="acquired">Acquired</label>
       </div>
       <div>
@@ -35,9 +38,10 @@
           id="pages-read"
           oninput="this.value = 
         !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+          required
         />
+        <span class="error-msg">Must be equal or less than Pages.</span>
         <label for="pages-read">Read</label>
-        <span id="error-msg">Must be equal or less than Pages.</span>
       </div>
       <div>
         <input
@@ -48,6 +52,7 @@
           id="pages"
           oninput="this.value = 
         !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null"
+          required
         />
         <label for="pages">Pages</label>
       </div>

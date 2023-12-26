@@ -20,14 +20,77 @@ const pagesRead = document.getElementById("pages-read");
 const pages = document.getElementById("pages");
 const errorMsg = document.getElementById("error-msg");
 
+title.addEventListener("input", () => {
+  if (title.value.trim().length > 30) {
+    title.classList.add("invalid");
+    title.nextElementSibling.setAttribute("style", "visibility: visible");
+    return;
+  }
+  title.classList.remove("invalid");
+  title.nextElementSibling.removeAttribute("style");
+});
+
+author.addEventListener("input", () => {
+  if (author.value.trim().length > 30) {
+    author.classList.add("invalid");
+    author.nextElementSibling.setAttribute("style", "visibility: visible");
+    return;
+  }
+  author.classList.remove("invalid");
+  author.nextElementSibling.removeAttribute("style");
+});
+
+acquired.addEventListener("input", () => {
+  if (acquired.value < published.value) {
+    acquired.classList.add("invalid");
+    acquired.nextElementSibling.setAttribute("style", "visibility: visible");
+    return;
+  }
+  acquired.classList.remove("invalid");
+  acquired.nextElementSibling.removeAttribute("style");
+});
+
+published.addEventListener("input", () => {
+  if (acquired.value < published.value) {
+    acquired.classList.add("invalid");
+    acquired.nextElementSibling.setAttribute("style", "visibility: visible");
+    return;
+  }
+  acquired.classList.remove("invalid");
+  acquired.nextElementSibling.removeAttribute("style");
+});
+
+pagesRead.addEventListener("input", () => {
+  if (pagesRead.value > pages.value) {
+    pagesRead.classList.add("invalid");
+    pagesRead.nextElementSibling.setAttribute("style", "visibility: visible");
+    return;
+  }
+  pagesRead.classList.remove("invalid");
+  pagesRead.nextElementSibling.removeAttribute("style");
+});
+
+pages.addEventListener("input", () => {
+  if (pagesRead.value > pages.value) {
+    pagesRead.classList.add("invalid");
+    pagesRead.nextElementSibling.setAttribute("style", "visibility: visible");
+    return;
+  }
+  pagesRead.classList.remove("invalid");
+  pagesRead.nextElementSibling.removeAttribute("style");
+});
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (
-    Number(pagesRead.value) > Number(pages.value) ||
-    pagesRead.value < 0 ||
-    pages.value < 0
-  ) {
-    errorMsg.setAttribute("style", "visibility:visible");
+  let errors = 0;
+  title.classList.contains("invalid") ? errors++ : errors;
+  author.classList.contains("invalid") ? errors++ : errors;
+  acquired.classList.contains("invalid") ? errors++ : errors;
+  pagesRead.classList.contains("invalid") ? errors++ : errors;
+
+  console.log(errors);
+  if (errors > 0) {
+    console.log("errors");
     return;
   }
   const newBook = new Book(
@@ -40,7 +103,6 @@ form.addEventListener("submit", (e) => {
   );
   library.push(newBook);
   renderBooks();
-  errorMsg.removeAttribute("style");
   form.reset();
 });
 

@@ -61,12 +61,22 @@ body {
   padding: 1px 10px;
 }
 
-#form span {
+/* #form span {
   position: absolute;
   width: 300px;
   color: red;
   left: -40px;
   bottom: -25px;
+  visibility: hidden;
+} */
+
+.error-msg {
+  position: absolute;
+  width: 200px;
+  color: red;
+  font-size: 0.7rem;
+  left: 5px;
+  top: 35px;
   visibility: hidden;
 }
 
@@ -266,4 +276,8 @@ svg {
   height: auto;
   width: 50px;
   fill: var(--bisque);
+}
+
+.invalid {
+  box-shadow: inset 0 0 10px red;
 }
