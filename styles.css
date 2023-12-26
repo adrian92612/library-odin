@@ -61,15 +61,6 @@ body {
   padding: 1px 10px;
 }
 
-/* #form span {
-  position: absolute;
-  width: 300px;
-  color: red;
-  left: -40px;
-  bottom: -25px;
-  visibility: hidden;
-} */
-
 .error-msg {
   position: absolute;
   width: 200px;
